@@ -1,4 +1,6 @@
-function same(arr1, arr2) {
+// Time complexity - O(N^2)
+
+function same_naive(arr1, arr2) {
     if(arr1.length !== arr2.length) {
         return false;
     }
@@ -13,5 +15,5 @@ function same(arr1, arr2) {
     return true;
 }
 
-console.log(same([1, 2, 3], [1, 4, 9]));
-console.log(same([1, 2, 3], [1, 1, 9]));
+console.log(same_naive([1, 2, 3], [1, 4, 9])); // true
+console.log(same_naive([1, 2, 3], [1, 1, 9])); // false
