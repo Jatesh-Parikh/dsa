@@ -10,4 +10,4 @@ function sum_zero_naive(arr) {
     }
 }
 
-console.log(sum_zero_naive([-4, -2, -6, -5, 2, 8, 5, 6, 7, 8,]))
+console.log(sum_zero_naive([-4, -2, -6, -5, 2, 8, 5, 6, 7, 8,]));
