@@ -1,5 +1,6 @@
 // Time complexity - O(N)
 
+// The arr must be sorted
 function sum_zero_refactor(arr) {
     let left = 0;
     let right = arr.length - 1;

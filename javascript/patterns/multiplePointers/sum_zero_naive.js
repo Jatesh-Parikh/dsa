@@ -1,4 +1,4 @@
-// Time complexity - O(N)
+// Time complexity - O(N^2)
 
 function sum_zero_naive(arr) {
     for(let i = 0; i < arr.length; i++) {
