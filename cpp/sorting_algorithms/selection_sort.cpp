@@ -20,8 +20,12 @@ void selection_sort(int A[], int n) {
 int main () {
     int A[] = {2, 7, 4, 1, 5, 3};
     selection_sort(A, 6);
+
+    cout << "Sorted Array: ";
     for (int i = 0; i < 6; i++) {
         cout << A[i] << " ";
     }
+
+    return 0;
 }
 
