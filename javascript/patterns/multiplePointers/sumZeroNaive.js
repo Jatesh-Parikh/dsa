@@ -1,6 +1,6 @@
 // Time complexity - O(N^2)
 
-function sum_zero_naive(arr) {
+function sumZeroNaive(arr) {
     for(let i = 0; i < arr.length; i++) {
         for(let j = i + 1; j < arr.length; j++) {
             if(arr[i] + arr[j] === 0) {
@@ -10,4 +10,4 @@ function sum_zero_naive(arr) {
     }
 }
 
-console.log(sum_zero_naive([-4, -2, -6, -5, 2, 8, 5, 6, 7, 8,]));
+console.log(sumZeroNaive([-4, -2, -6, -5, 2, 8, 5, 6, 7, 8,]));

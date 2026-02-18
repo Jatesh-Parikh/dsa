@@ -1,7 +1,7 @@
 // Average Case Time Complexity O(nlogn)
 // Worst Case Time Complexity O(n^2)
 
-// Inplace sorting algorithm
+// Quick Sort - Inplace sorting algorithm
 
 #include<iostream>
 using namespace std;
@@ -16,7 +16,7 @@ int partition(int A[], int start, int end) {
             partition_index++;
         }
     }
-    swap(A[partition_index], A[end]);
+    swap(A[partition_index], A[end]); // partition index now points to where the pivot should be
     return partition_index;
 }
 

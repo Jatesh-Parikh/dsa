@@ -1,6 +1,6 @@
 // Time complexity - O(N)
 
-function same_refactor(arr1, arr2) {
+function sameRefactor(arr1, arr2) {
     if(arr1.length !== arr2.length) {
         return false;
     }
@@ -27,5 +27,5 @@ function same_refactor(arr1, arr2) {
     return true;
 }
 
-console.log(same_refactor([1, 2, 3], [1, 4, 9])); // true
-console.log(same_refactor([1, 2, 3], [1, 1, 9])); // false
+console.log(sameRefactor([1, 2, 3], [1, 4, 9])); // true
+console.log(sameRefactor([1, 2, 3], [1, 1, 9])); // false

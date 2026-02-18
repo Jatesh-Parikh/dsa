@@ -1,7 +1,7 @@
 // Time complexity - O(N)
 
 // The arr must be sorted
-function sum_zero_refactor(arr) {
+function sumZeroRefactor(arr) {
     let left = 0;
     let right = arr.length - 1;
     while (left < right) {
@@ -16,4 +16,4 @@ function sum_zero_refactor(arr) {
     } 
 }
 
-console.log(sum_zero_refactor([-4, -2, -6, -5, 2, 8, 5, 6, 7, 8,]));
+console.log(sumZeroRefactor([-4, -2, -6, -5, 2, 8, 5, 6, 7, 8,]));

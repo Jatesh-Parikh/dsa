@@ -1,6 +1,6 @@
 // Time complexity - O(N)
 
-function max_sum_refactor(arr, num) {
+function maxSumRefactor(arr, num) {
     if(num > arr.length) return null;
 
     let maxSum = 0;
@@ -20,4 +20,4 @@ function max_sum_refactor(arr, num) {
     return maxSum;
 }
 
-console.log(max_sum_refactor([2, 6, 9, 2, 1, 8, 5, 6, 3], 3));
+console.log(maxSumRefactor([2, 6, 9, 2, 1, 8, 5, 6, 3], 3));
