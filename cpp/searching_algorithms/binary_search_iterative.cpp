@@ -4,7 +4,7 @@ using namespace std;
 
 // Time Complexity O(logn)
 
-int binary_search(int A[], int n, int x) {
+int binary_search_iterative(int A[], int n, int x) {
     int low = 0;
     int high = n - 1;
     while (low <= high) {
@@ -19,9 +19,13 @@ int binary_search(int A[], int n, int x) {
 int main () {
     int A[] = {5, 9, 12, 16, 21};
 
-    int result = binary_search(A, 5, 22);
+    int result = binary_search_iterative(A, 5, 21);
 
-    cout << "The value lies at index position " << result;
+    if (result == -1) {
+        cout << "Value not found";
+    } else {
+        cout << "The value lies at index position " << result;
+    }
 
     return 0;
 }
