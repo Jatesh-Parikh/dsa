@@ -2,6 +2,7 @@
 
 using namespace std;
 
+// The solution assumes that the array contains no duplicates
 int circular_array_search(int A[], int n, int x) {
     int low = 0;
     int high = n - 1;

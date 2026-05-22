@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// The solution assumes that the array contains no duplicates
 int rotation_count(int A[], int n) {
     int low = 0;
     int high = n - 1;
