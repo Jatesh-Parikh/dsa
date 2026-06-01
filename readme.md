@@ -1,1 +1,1 @@
-### data structures and algorithms practice in Javascript, Python and C++
+### Data Structures and Algorithms practice in Javascript, Python and C++
