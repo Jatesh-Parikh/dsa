@@ -1,5 +1,6 @@
 // Bubbles the largest value to the end
 // Time Complexity - O(n^2)
+// Space Complexity - O(1)
 
 function bubbleSort(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
