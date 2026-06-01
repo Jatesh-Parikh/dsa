@@ -1,3 +1,6 @@
+// Opposite of bubble sort. Sorts the minimum value in each cycle
+// Time Complexity - O(n^2)  
+
 function selectionSort(arr) {
     for (let i = 0; i < arr.length; i++) {
         let min = i;
@@ -6,9 +9,11 @@ function selectionSort(arr) {
                 min = j;
             }
         }
-        let temp = arr[i];
-        arr[i] = arr[min];
-        arr[min] = temp;
+        if (i !== min) {
+            let temp = arr[i];
+            arr[i] = arr[min];
+            arr[min] = temp;
+        }
     }
     return arr;
 }
