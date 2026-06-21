@@ -1,3 +1,6 @@
+// Time Complexity - O(nlogn) 
+// Space Complexity = O(n)
+
 function merge(arr1, arr2) {
     let i = 0;
     let j = 0;
