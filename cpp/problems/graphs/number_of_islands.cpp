@@ -23,7 +23,14 @@ class Solution {
                         int nrow = row + delta_row;
                         int ncol = col + delta_col;
 
-                        if (nrow >= 0 && nrow < n && ncol >= 0 && ncol < m && grid[nrow][ncol] == '1' && !visited[nrow][ncol]) {
+                        if (
+                            nrow >= 0 && 
+                            nrow < n && 
+                            ncol >= 0 && 
+                            ncol < m && 
+                            grid[nrow][ncol] == '1' && 
+                            !visited[nrow][ncol]
+                        ) {
                             visited[nrow][ncol] = 1;
                             q.push({ nrow, ncol });
                         }
