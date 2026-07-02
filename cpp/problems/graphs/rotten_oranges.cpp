@@ -1,6 +1,10 @@
+// Time Complexity - O(n x m)
+// Space Complexity - O(n x m)
+
 #include <vector>
 #include <queue>
 #include <utility>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -11,15 +15,13 @@ class Solution {
 
             queue<pair<pair<int, int>, int>> q; // {{r, c}, t}
 
-            vector<vector<int>> vis;
+            vector<vector<int>> vis(n, vector<int>(m, 0));
 
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < m; j++) {
                     if (grid[i][j] == 2) {
                         q.push({{i, j}, 0});
                         vis[i][j] = 2;
-                    } else {
-                        vis[i][j] = 0;
                     }
                 }
             }
@@ -41,8 +43,8 @@ class Solution {
                     int nrow = r + delta_row[i];
                     int ncol = c + delta_col[i];
 
-                    if (nrow >= 0 && nrow < n && ncol >= 0 && ncol < m && grid[nrow][ncol] && !vis[nrow][ncol]) {
-                        q.push({{nrow, ncol}, time + 1});
+                    if (nrow >= 0 && nrow < n && ncol >= 0 && ncol < m && grid[nrow][ncol] == 1 && vis[nrow][ncol] != 2) {
+                        q.push({{nrow, ncol}, t + 1});
                         vis[nrow][ncol] = 2;
                     }
                 }
@@ -50,7 +52,7 @@ class Solution {
 
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < m; j++) {
-                    if(vis[i][j] == 1) {
+                    if(vis[i][j] != 2 && grid[i][j] == 1) {
                         return -1;
                     }
                 }
