@@ -45,7 +45,7 @@ class Solution {
                     nrow < n &&
                     ncol >= 0 &&
                     ncol < m && 
-                    vis[nrow][ncol] == 0
+                    !vis[nrow][ncol]
                 ) {
                     vis[nrow][ncol] = 1;
                     dist[nrow][ncol] = dist[row][col] + 1;
