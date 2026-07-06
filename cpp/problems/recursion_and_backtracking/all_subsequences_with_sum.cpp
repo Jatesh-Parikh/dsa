@@ -6,9 +6,9 @@
 
 using namespace std;
 
-void all_subsequences_with_sum(int index, int arr[], vector<int>& ds, int s, int sum, int n) {
+void all_subsequences_with_sum(int index, int arr[], vector<int>& ds, int calculated_sum, int sum, int n) {
     if (index == n) {
-        if (s == sum) {
+        if (calculated_sum == sum) {
             for (auto it : ds) {
                 cout << it << " ";
             }
@@ -18,12 +18,12 @@ void all_subsequences_with_sum(int index, int arr[], vector<int>& ds, int s, int
     }
 
     ds.push_back(arr[index]);
-    s += arr[index];
-    all_subsequences_with_sum(index + 1, arr, ds, s, sum, n); // Pick
+    calculated_sum += arr[index];
+    all_subsequences_with_sum(index + 1, arr, ds, calculated_sum, sum, n); // Pick
 
     ds.pop_back();
-    s -= arr[index];
-    all_subsequences_with_sum(index + 1, arr, ds, s, sum, n); // Not Pick
+    calculated_sum -= arr[index];
+    all_subsequences_with_sum(index + 1, arr, ds, calculated_sum, sum, n); // Not Pick
 }
 
 int main() {
