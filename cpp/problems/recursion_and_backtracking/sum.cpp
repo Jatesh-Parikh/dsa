@@ -5,7 +5,7 @@
 
 // Functional Recursion
 // 1. You don't carry the answer as a parameter
-// 2. Each recursive call returns a value, and the caller combines it with it's own work
+// 2. Each recursive call returns a value, and the caller combines it with its own work
 
 #include <iostream>
 
