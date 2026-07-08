@@ -1,77 +1,68 @@
-// Time Complexity - O(4 ^ (n * m))
+// Time Complexity - O(3 ^ (n * m))
 // Space Complexity - O(n * m)
 
 #include <vector>
 #include <string>
 
 using namespace std;
-
 class Solution {
     private:
         void solve(
-            int i, 
-            int j, 
+            int row,
+            int col,
             vector<vector<int>>& m,
-            int n, 
+            int n,
+            vector<string>& ans,
             string& move,
-            vector<string>& ans,  
-            vector<vector<int>>& vis
+            vector<vector<int>>& vis,
+            const int delta_row[],
+            const int delta_col[],
+            const char arr[]
         ) {
-            if (i == n-1 && j == n - 1) {
+            if (row == n - 1 && col == n - 1) {
                 ans.push_back(move);
                 return;
             }
 
-            // Downward
-            if (i + 1 < n && !vis[i + 1][j] && m[i + 1][j] == 1) {
-                vis[i + 1][j] = 1;
-                move.push_back('D');
-                solve(i + 1, j, m, n, move, ans, vis);
-                vis[i + 1][j] = 0;
-                move.pop_back();
-            }
+            for (int i = 0; i < 4; i++) {
+                int next_row = row + delta_row[i];
+                int next_col = col + delta_col[i];
 
-            // Left
-            if (j - 1 >= 0 && !vis[i][j - 1] && m[i][j - 1] == 1) {
-                vis[i][j - 1] = 1;
-                move.push_back('L');
-                solve(i, j - 1, m, n, move, ans, vis);
-                vis[i][j - 1] = 0;
-                move.pop_back();
-            }
-
-            // Right
-            if (j + 1 < n && !vis[i][j + 1] && m[i][j + 1] == 1) {
-                vis[i][j + 1] = 1;
-                move.push_back('R');
-                solve(i, j + 1, m, n, move, ans, vis);
-                vis[i][j + 1] = 0;
-                move.pop_back();
-            }
-
-            // Upward
-            if (i - 1 >= 0 && !vis[i - 1][j] && m[i - 1][j] == 1) {
-                vis[i - 1][j] = 1;
-                move.push_back('U');
-                solve(i - 1, j, m, n, move, ans, vis);
-                vis[i - 1][j] = 0;
-                move.pop_back();
+                if (
+                    next_row >= 0 && 
+                    next_row < n &&
+                    next_col >= 0 &&
+                    next_col < n &&
+                    !vis[next_row][next_col] &&
+                    m[next_row][next_col] == 1 
+                ) {
+                    vis[next_row][next_col] = 1;
+                    move.push_back(arr[i]);
+                    
+                    solve(next_row, next_col, m, n, ans, move, vis, delta_row, delta_col, arr);
+                    
+                    vis[next_row][next_col] = 0;
+                    move.pop_back();
+                }
             }
         }
-    
+
     public:
         vector<string> find_path(vector<vector<int>>& m, int n) {
-            vector<string> ans;
             vector<vector<int>> vis(n, vector<int>(n, 0));
+            vector<string> ans;
             string move;
 
+            const int delta_row[] = {1, 0, 0, -1};
+            const int delta_col[] = {0, -1, 1, 0};
+            const char arr[] = {'D', 'L', 'R', 'U'};
+
             if (m[0][0] == 0) return ans;
-            
+
             vis[0][0] = 1;
 
-            solve(0, 0, m, n, move, ans, vis);
-            
+            solve(0, 0, m, n, ans, move, vis, delta_row, delta_col, arr);
+
             return ans;
         }
 };
-
