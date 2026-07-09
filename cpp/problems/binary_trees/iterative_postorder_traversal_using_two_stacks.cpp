@@ -20,7 +20,7 @@ struct TreeNode {
 
 class Solution {
     public:
-        vector<int> iterative_postorder_traversal_one(TreeNode *root) {
+        vector<int> iterative_postorder_traversal(TreeNode *root) {
             vector<int> postorder;
             if (root == nullptr) return postorder;
 
