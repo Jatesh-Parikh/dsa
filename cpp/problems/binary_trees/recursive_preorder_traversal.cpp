@@ -17,11 +17,11 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right): val(x), left(left), right(right) {}
 };
 
-void preorder(TreeNode *root) {
+void recursive_preorder(TreeNode *root) {
     if (root == nullptr) return;
     
     cout << root->val << endl;
     
-    preorder(root->left);
-    preorder(root->right);
+    recursive_preorder(root->left);
+    recursive_preorder(root->right);
 } 
