@@ -1,6 +1,8 @@
 // Time Complexity - O(n)
 // Space Complexity - O(n)
 
+// Breadth First Search - Level Order Traversal
+
 #include <vector>
 #include <queue>
 
@@ -21,7 +23,7 @@ class Solution {
         vector<vector<int>> level_order_traversal(TreeNode * root) {
             vector<vector<int>> ans;
             
-            if (root == NULL) return ans;
+            if (root == nullptr) return ans;
             
             queue<TreeNode*> q;
             q.push(root);
@@ -34,8 +36,9 @@ class Solution {
                     TreeNode *node = q.front();
                     q.pop();
 
-                    if(node->left != NULL) q.push(node->left);
-                    if(node->right != NULL) q.push(node->right);
+                    if(node->left != nullptr) q.push(node->left);
+                    if(node->right != nullptr) q.push(node->right);
+                    
                     level.push_back(node->val);
                 }
                 ans.push_back(level);

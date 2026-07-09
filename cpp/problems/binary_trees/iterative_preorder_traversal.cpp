@@ -1,6 +1,8 @@
 // Time Complexity - O(n)
 // Space Complexity - O(n)
 
+// Preorder - Root, Left, Right 
+
 #include <vector>
 #include <stack>
 
@@ -21,7 +23,7 @@ class Solution {
         vector<int> iterative_preorder_traversal(TreeNode *root) {
             vector<int> preorder;
 
-            if(root == NULL) return preorder;
+            if(root == nullptr) return preorder;
 
             stack<TreeNode *> st;
 
@@ -32,9 +34,9 @@ class Solution {
                 st.pop();
                 preorder.push_back(root->val);
 
-                if (root->right != NULL) st.push(root->right);
+                if (root->right != nullptr) st.push(root->right);
                 
-                if (root->left != NULL) st.push(root->left);
+                if (root->left != nullptr) st.push(root->left);
             }
             return preorder;
         }
