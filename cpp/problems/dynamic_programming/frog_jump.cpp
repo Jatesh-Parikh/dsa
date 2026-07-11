@@ -41,10 +41,12 @@ class Solution {
 
         // Time Complexity - O(n)
         // Space Complexity - O(n)
-        int frog_jump_iterative(int index, vector<int>& heights, vector<int>& dp) {
+        int frog_jump_iterative(vector<int>& heights) {
+            int n = heights.size();
+            vector<int> dp(n, -1);
             dp[0] = 0;
 
-            for (int i = 1; i <= index; i++) {
+            for (int i = 1; i < n; i++) {
                 int one_step = dp[i - 1] + abs(heights[i] - heights[i - 1]);
 
                 int two_step = INT_MAX;
@@ -53,15 +55,16 @@ class Solution {
                 dp[i] = min(one_step, two_step);
             }
 
-            return dp[index];
+            return dp[n - 1];
         }
 
         // Time Complexity - O(n)
         // Space Complexity - O(1)
-        int frog_jump_optimized(int index, vector<int>& heights) {
+        int frog_jump_optimized(vector<int>& heights) {
+            int n = heights.size();
             int prev = 0, prev_2 = 0;
 
-            for (int i = 1; i <= index; i++) {
+            for (int i = 1; i < n; i++) {
                 int one_step = prev + abs(heights[i] - heights[i - 1]);
 
                 int two_step = INT_MAX;
@@ -79,7 +82,12 @@ class Solution {
         void frog_jump(int n, vector<int>& heights) {
             cout << frog_jump_recursive(n - 1, heights) << endl;
 
-            cout << frog_jump_optimized(n - 1, heights) << endl;
+            vector<int> dp(n, -1);
+            cout << frog_jump_memoized(n - 1, heights, dp) << endl;
+            
+            cout << frog_jump_iterative(heights) << endl;
+
+            cout << frog_jump_optimized(heights) << endl;
         }
 };
 
