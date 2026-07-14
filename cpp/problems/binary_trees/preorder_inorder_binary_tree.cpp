@@ -31,11 +31,27 @@ class Solution {
 
             TreeNode *root = new TreeNode(pre_order[pre_start]);
 
-            int in_root = map[root->val];
-            int nums_left = in_root - in_start;
+            int inorder_root_index = map[root->val];
+            int nums_left = inorder_root_index - in_start;
 
-            root->left = build_tree(pre_order, pre_start + 1, pre_start + nums_left, in_order, in_start, in_root - 1, map);
-            root->right = build_tree(pre_order, pre_start + nums_left + 1, pre_end, in_order, in_root + 1, in_end, map);
+            root->left = build_tree(
+                            pre_order, 
+                            pre_start + 1, 
+                            pre_start + nums_left, 
+                            in_order, 
+                            in_start, 
+                            inorder_root_index - 1, 
+                            map
+                        );
+            root->right = build_tree(
+                            pre_order, 
+                            pre_start + nums_left + 1, 
+                            pre_end, 
+                            in_order, 
+                            inorder_root_index + 1, 
+                            in_end, 
+                            map
+                        );
             
             return root;
         }
