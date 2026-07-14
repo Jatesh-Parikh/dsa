@@ -1,5 +1,5 @@
 // Time Complexity - O(n)
-// Space Complexity - O()
+// Space Complexity - O(n)
 
 #include <vector>
 #include <unordered_map>
