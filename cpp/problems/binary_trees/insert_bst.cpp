@@ -18,7 +18,7 @@ class Solution {
 
             TreeNode *curr = root;
 
-            while (root) {
+            while (true) {
                 if (curr->val <= value) {
                     if(curr->right) curr = curr->right;
                     else {
