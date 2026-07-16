@@ -29,11 +29,10 @@ class Solution {
         }
 
         TreeNode *find_last_right(TreeNode *root) {
-            if (root->right == nullptr) {
-                return root;
+            while (root->right != nullptr) {
+                root = root->right;
             }
-
-            return find_last_right(root->right);
+            return root;
         }
 
     public:
