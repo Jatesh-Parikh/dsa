@@ -5,6 +5,8 @@ using namespace std;
 
 class Solution {
     public:
+        // Time Complexity - O(n)
+        // Space Complexity - O(1)
         vector<int> next_permutation_better(vector<int>& arr) {
             next_permutation(arr.begin(), arr.end());
             return arr;
