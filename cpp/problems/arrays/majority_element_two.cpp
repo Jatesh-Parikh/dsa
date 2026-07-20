@@ -28,7 +28,6 @@ class Solution {
         // Space Complexity - O(1)
         vector<int> majority_element_two_optimal(vector<int>& arr) {
             int n = arr.size();
-            int minimum = n / 3 + 1;
             int count1 = 0, el1 = INT_MIN, count2 = 0, el2 = INT_MIN;
             
             for (int i = 0; i < n; i++) {
@@ -47,14 +46,15 @@ class Solution {
                     count2--;
                 }
             }
-
+            
             vector<int> res;
             count1 = 0, count2 = 0;
             for (int i = 0; i < n; i++) {
                 if (arr[i] == el1) count1++;
                 if (arr[i] == el2) count2++;
             }
-
+            
+            int minimum = n / 3 + 1;
             if(count1 >= minimum) res.push_back(el1);
             if(count2 >= minimum) res.push_back(el2);
 
