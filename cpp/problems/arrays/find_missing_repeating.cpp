@@ -63,6 +63,8 @@ class Solution {
 
             int bit_no = 0;
 
+            // You can also find the number in one line with this: number = xr & ~(xr - 1);
+
             while (1) {
                 if ((xr & (1 << bit_no)) != 0) {
                     break;
@@ -73,7 +75,7 @@ class Solution {
             int zero = 0, one = 0;
 
             for (int i = 0; i < n; i++) {
-                if ((arr[i] & (1 << bit_no)) != 0) {
+                if ((arr[i] & (1 << bit_no)) != 0) {  // (arr[i] & number) != 0
                     one = one ^ arr[i];
                 } else {
                     zero = zero ^ arr[i];
@@ -81,7 +83,7 @@ class Solution {
             }
 
             for (int i = 1; i <= n; i++) {
-                if ((i & (1 << bit_no)) != 0) {
+                if ((i & (1 << bit_no)) != 0) {      // (arr[i] & number) != 0
                     one = one ^ i;
                 } else {
                     zero = zero ^ i;
