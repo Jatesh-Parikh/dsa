@@ -7,7 +7,7 @@ class Solution {
     public:
         // Time Complexity - O(n)
         // Space Complexity - O(n)
-        int count_subarray_with_sum(vector<int>& arr, int k) {
+        int count_subarrays_with_sum(vector<int>& arr, int k) {
             unordered_map<int, int> mpp;          
             mpp[0] = 1;
             
