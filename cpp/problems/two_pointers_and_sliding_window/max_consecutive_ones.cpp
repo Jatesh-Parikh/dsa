@@ -29,7 +29,7 @@ class Solution {
 
         // Time Complexity - O(n)
         // Space Complexity - O(1)
-        int max_consecutive_ones(vector<int>& arr, int k) {
+        int max_consecutive_ones_optimal(vector<int>& arr, int k) {
             int left = 0, right = 0, max_len = 0, zeros = 0;
             int n = arr.size();
 
