@@ -6,6 +6,7 @@ class Solution {
     public:
         // Time Complexity - O(logn)
         // Space Complexity - O(1)
+        // The array contains unique elements, no duplicates
         int search(vector<int>& arr, int k) {
             int n = arr.size();
             int low = 0, high = n - 1;
