@@ -13,12 +13,12 @@ class Solution {
             int ans = INT_MAX;
 
             while (low <= high) {
-                int mid = low + (high - low) / 2;
-
                 if (arr[low] <= arr[high]) {
                     ans = min(ans, arr[low]);
                     break;
                 }
+
+                int mid = low + (high - low) / 2;
 
                 if (arr[low] <= arr[mid]) { // left-half sorted
                     ans = min(ans, arr[low]);

@@ -1,5 +1,6 @@
 // # of rotations = index of min element
-#include<iostream>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -26,6 +27,44 @@ int rotation_count(int A[], int n) {
     }
 
     return -1;
+}
+
+// Rotation count will be the index of the minimum element
+// Time Complexity - O(log n)
+// Space Complexity - O(1)
+int rotation_count_striver(vector<int>& arr) {
+    int n = arr.size();
+    int low = 0, high = n - 1;
+    int ans = INT_MAX;
+    int index = -1;
+
+    while (low <= high) {
+        if (arr[low] <= arr[high]) {
+            if (arr[low] < ans) {
+                index = low;
+                ans = arr[low];
+            }
+            break;
+        }
+
+        int mid = low + (high - low) / 2;
+
+        if (arr[low] <= arr[mid]) { // left-half sorted
+            if (arr[low] < ans) {
+                index = low;
+                ans = arr[low];
+            }
+            low = mid + 1;
+        } else { // right-half sorted
+            if (arr[mid] < ans) {
+                index = mid;
+                ans = arr[mid];
+            }
+            high = mid - 1;
+        }
+    }
+
+    return index;
 }
 
 int main() {
