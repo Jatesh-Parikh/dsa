@@ -30,6 +30,8 @@ class Solution {
         // Time Complexity - O(n * log(max_element))
         // Space Complexity - O(1)
         int smallest_divisor(vector<int>& arr, int threshold) {
+            if (arr.size() > threshold) return -1; // Since, arr.size() can be the minimum sum
+            
             int low = 1, high = find_max(arr);
 
             while (low <= high) {
