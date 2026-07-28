@@ -1,5 +1,6 @@
 #include <vector>
 #include <queue>
+#include <math.h>
 
 using namespace std;
 
@@ -63,7 +64,42 @@ class Solution {
             return pq.top().first;
         }
 
-        // Time Complexity - O()
-        // Space Complexity - O()
-        long double minimise_max_distance_optimal(vector<int>& arr, int k) {}
+        int number_of_stations_reqd(long double dist, vector<int>& arr) {
+            int count = 0;
+
+            for (int i = 1; i < arr.size(); i++) {
+                int stations_in_between = ceil((arr[i] - arr[i - 1]) / dist) - 1;
+                count += stations_in_between;
+            }
+
+            return count;
+        }
+
+        // Time Complexity - O(n + n * log(high - low))
+        // Space Complexity - O(1)
+        long double minimise_max_distance_optimal(vector<int>& arr, int k) {
+            int n = arr.size();
+            long double low = 0;
+            long double high = 0;
+
+            for (int i = 0; i < n - 1; i++) {
+                high = max(high, (long double)arr[i + 1] - arr[i]);
+            }
+
+            long double diff = 1e-6;
+
+            while (high - low > diff) {
+                long double mid = (low + high) / 2.0;
+
+                int count = number_of_stations_reqd(mid, arr);
+
+                if (count > k) {
+                    low = mid;
+                } else {
+                    high = mid;
+                }
+            }
+
+            return high;
+        }
 };
