@@ -1,4 +1,5 @@
 #include <vector>
+#include <queue>
 
 using namespace std;
 
@@ -37,4 +38,32 @@ class Solution {
             return max_ans;
         }
 
+        // Time Complexity - O((n + k)logn)
+        // Space Complexity - O(n)
+        long double minimise_max_distance_better(vector<int>& arr, int k) {
+            int n = arr.size();
+            vector<int> how_many(n - 1, 0);
+            priority_queue<pair<long double, int>> pq;
+
+            for (int i = 0; i < n - 1; i++) {
+                pq.push({ arr[i + 1] - arr[i], i });
+            }
+
+            for (int gas_station = 1; gas_station <= k; gas_station++) {
+                auto top = pq.top(); 
+                pq.pop();
+
+                int max_section_index = top.second;
+                how_many[max_section_index]++;
+                long double diff = arr[max_section_index + 1] - arr[max_section_index];
+                long double new_section_length = diff / (long double)(how_many[max_section_index] + 1);
+                pq.push({ new_section_length, max_section_index });
+            }
+
+            return pq.top().first;
+        }
+
+        // Time Complexity - O()
+        // Space Complexity - O()
+        long double minimise_max_distance_optimal(vector<int>& arr, int k) {}
 };
