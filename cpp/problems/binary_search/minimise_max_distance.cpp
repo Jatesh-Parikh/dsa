@@ -75,7 +75,7 @@ class Solution {
             return count;
         }
 
-        // Time Complexity - O(n + n * log(high - low))
+        // Time Complexity - O(n + n * log((high - low) / diff ))
         // Space Complexity - O(1)
         long double minimise_max_distance_optimal(vector<int>& arr, int k) {
             int n = arr.size();
