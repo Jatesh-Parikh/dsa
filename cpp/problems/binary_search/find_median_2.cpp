@@ -34,8 +34,8 @@ class Solution {
         }
 
     public: 
-    // Time Complexity - O(log(high - low + 1) *  m logn)
-    // Space Complexity - O(1)
+        // Time Complexity - O(log(high - low + 1) *  m logn)
+        // Space Complexity - O(1)
         int median(vector<vector<int>>& mat, int m, int n) {
             int low = INT_MAX, high = INT_MIN;
 
