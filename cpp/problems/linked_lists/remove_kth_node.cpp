@@ -26,7 +26,7 @@ class Solution {
                 return head;
             }
 
-            while (fast) {
+            while (fast->next) {
                 fast = fast->next;
                 slow = slow->next;
             }
