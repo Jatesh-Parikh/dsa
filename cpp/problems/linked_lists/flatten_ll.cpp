@@ -35,7 +35,7 @@ class Solution {
         }
 
     public:
-        // Time Complexity - O(n*m)
+        // Time Complexity - O(n ^ 2 * m)
         // Space Complexity - O(n)
         Node *flatten_ll(Node *head) {
             if (head == nullptr || head->next == nullptr) return head;
