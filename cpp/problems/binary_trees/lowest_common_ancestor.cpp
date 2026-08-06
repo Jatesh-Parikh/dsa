@@ -13,7 +13,7 @@ struct TreeNode {
 
 class Solution {
     public:
-        TreeNode * lowest_common_ancestor(TreeNode *root, TreeNode *p, TreeNode *q) {
+        TreeNode *lowest_common_ancestor(TreeNode *root, TreeNode *p, TreeNode *q) {
             if (root == nullptr || root == p || root == q) {
                 return root;
             }
