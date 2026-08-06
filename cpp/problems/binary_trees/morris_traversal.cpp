@@ -16,7 +16,8 @@ class Solution {
     public:
         // Time Complexity - O(n)
         // Space Complexity - O(1)
-        vector<int> morris_traversal(TreeNode *root) {
+        // Left, Root, Right
+        vector<int> morris_traversal_inorder(TreeNode *root) {
             vector<int> inorder;
             TreeNode *curr = root;
 
@@ -43,5 +44,36 @@ class Solution {
             }
 
             return inorder;
+        }
+
+        // Time Complexity - O(n)
+        // Space Complexity - O(1)
+        // Root, Left, Right
+        vector<int> morris_traversal_preorder(TreeNode *root) {
+            vector<int> preorder;
+            TreeNode *curr = root;
+
+            while (curr) {
+                if (curr->left == nullptr) {
+                    preorder.push_back(curr->val);
+                    curr = curr->right;
+                } else {
+                    TreeNode *prev = curr->left;
+                    while (prev->right && prev->right != curr) {
+                        prev = prev->right;
+                    }
+
+                    if (prev->right == nullptr) {
+                        prev->right = curr;
+                        preorder.push_back(curr->val);
+                        curr = curr->left;
+                    } else {
+                        prev->right = nullptr;
+                        curr = curr->right;
+                    }
+                }
+            }
+
+            return preorder;
         }
 };
