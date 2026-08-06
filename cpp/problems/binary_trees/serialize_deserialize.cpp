@@ -40,6 +40,8 @@ class Solution {
             return s;
         }
 
+        // Time Complexity - O(n)
+        // Space Complexity - O(n)
         TreeNode *de_serialize(string data) {
             if (data.size() == 0) return nullptr;
             stringstream s(data);
