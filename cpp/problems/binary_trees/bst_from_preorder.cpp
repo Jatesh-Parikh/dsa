@@ -17,6 +17,7 @@ class Solution {
     private:
         TreeNode *build(vector<int>& a, int& i, int ub) {
             if (i == a.size() || a[i] > ub) return nullptr;
+            
             TreeNode *root = new TreeNode(a[i++]);
             root->left = build(a, i, root->val);
             root->right = build(a, i, ub);
