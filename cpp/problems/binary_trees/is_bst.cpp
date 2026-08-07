@@ -22,7 +22,7 @@ class Solution {
 
     public:
         // Time Complexity - O(n)
-        // Space Complexity - O(1)
+        // Space Complexity - O(h)
         bool is_bst(TreeNode *root) {
             return is_valid(root, INT_MIN, INT_MAX);
         }
