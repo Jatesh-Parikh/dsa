@@ -17,7 +17,7 @@ struct TreeNode {
 class Solution {
 public:
     // Time Complexity - O(n logn)
-    // Time Complexity - O(n)
+    // Space Complexity - O(n)
 	vector<int> kth_smallest_largest(TreeNode* root,int k){
         vector<int> res;
         queue<TreeNode*> q;
