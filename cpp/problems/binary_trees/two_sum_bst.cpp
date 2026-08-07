@@ -46,6 +46,8 @@ class BSTIterator {
 
 class Solution {
     public:
+        // Time Complexity - O(n)
+        // Space Complexity - O(h)
         bool two_sum_bst(TreeNode *root, int k) {
             if (!root) return false;
 
