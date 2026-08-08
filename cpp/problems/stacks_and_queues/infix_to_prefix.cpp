@@ -13,9 +13,6 @@ class Solution {
             else return -1;
         }
 
-    public:
-        // Time Complexity - O(n)
-        // Space Complexity - O(n)
         string infix_to_postfix(string s) {
             string ans = "";
             stack<char> st;
@@ -32,27 +29,44 @@ class Solution {
                         ans += st.top();
                         st.pop();
                     }
-
                     st.pop();
                 } else {
-                    while (!st.empty() && (
-                        priority(ch) < priority(st.top()) ||
+                    while (
+                        !st.empty() && 
                         (
-                            priority(ch) == priority(st.top()) && ch != '^'
+                            priority(ch) < priority(st.top()) ||
+                            (priority(ch) == priority(st.top()) && ch != '^')
                         )
-                    )) {
+                    ) {
                         ans += st.top();
                         st.pop();
                     }
-                    
                     st.push(ch);
-                }
-            } 
+                }    
+            }
 
             while (!st.empty()) {
                 ans += st.top();
                 st.pop();
             }
+
+            return ans;
+        }
+
+    public:
+        // Time Complexity - O(n)
+        // Space Complexity - O(n)
+        string infix_to_prefix(string s) {
+            reverse(s.begin(), s.end());
+
+            for (int i = 0; i < s.size(); i++) {
+                if (s[i] == '(') s[i] = ')';
+                else if (s[i] == ')') s[i] = '(';
+            }
+
+            string ans = infix_to_postfix(s);
+
+            reverse(ans.begin(), ans.end());
 
             return ans;
         }
