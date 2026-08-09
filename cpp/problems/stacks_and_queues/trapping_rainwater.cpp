@@ -11,22 +11,22 @@ class Solution {
             if (n == 0) return 0;
 
             int total = 0;
-            vector<int> prefix_max(n);
-            vector<int> suffix_max(n);
+            vector<int> l_max(n);
+            vector<int> r_max(n);
 
-            prefix_max[0] = arr[0];
+            l_max[0] = arr[0];
             for (int i = 1; i < n; i++) {
-                prefix_max[i] = max(prefix_max[i - 1], arr[i]);
+                l_max[i] = max(l_max[i - 1], arr[i]);
             }
 
-            suffix_max[n - 1] = arr[n - 1];
+            r_max[n - 1] = arr[n - 1];
             for (int i = n - 2; i >= 0; i--) {
-                suffix_max[i] = max(arr[i], suffix_max[i + 1]);
+                r_max[i] = max(arr[i], r_max[i + 1]);
             }
 
             for (int i = 0; i < n; i++) {
-                int left_max = prefix_max[i];
-                int right_max = suffix_max[i];
+                int left_max = l_max[i];
+                int right_max = r_max[i];
 
                 if (arr[i] < left_max && arr[i] < right_max) {
                     total += min(left_max, right_max) - arr[i];
@@ -46,14 +46,15 @@ class Solution {
             int l = 0, r = arr.size() - 1;
 
             while (l < r) {
-                if (arr[l] <= arr[r]) {
-                    if (left_max > arr[l]) total += left_max - arr[l];
-                    else left_max = arr[l];
-                    l += 1;
+                left_max = max(left_max, arr[l]);
+                right_max = max(right_max, arr[r]);
+
+                if (left_max < right_max) {
+                    total += left_max - arr[l];
+                    l++;
                 } else {
-                    if (right_max > arr[r]) total += right_max - arr[r];
-                    else right_max = arr[r];
-                    r -= 1;
+                    total += right_max - arr[r];
+                    r--;
                 }
             }
 
