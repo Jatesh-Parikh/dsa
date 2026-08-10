@@ -1,1 +1,1 @@
-### Data Structures and Algorithms in Javascript, Python and C++
+#### Data Structures and Algorithms in C++, Javascript, and Python

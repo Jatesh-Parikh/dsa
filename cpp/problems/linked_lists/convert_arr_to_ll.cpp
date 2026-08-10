@@ -15,10 +15,12 @@ struct Node {
 class Solution {
     public:
         // Time Complexity - O(n)
-        // Space Complexity - O(1)
+        // Space Complexity - O(n)
         Node *convert_arr_to_ll(vector<int>& arr) {
+            if (arr.size() == 0) return nullptr;
+
             Node *head = new Node(arr[0]);
-            Node * mover = head;
+            Node *mover = head;
 
             for (int i = 1; i < arr.size(); i++) {
                 Node *temp = new Node(arr[i]);
@@ -30,7 +32,7 @@ class Solution {
         }
 
         // Time Complexity - O(n)
-        // Space Complexity - O(1)
+        // Space Complexity - O(n)
         void traverse(vector<int>& arr) {
             Node *head = convert_arr_to_ll(arr);
             Node *temp = head;
