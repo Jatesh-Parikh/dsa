@@ -71,4 +71,35 @@ class Solution {
 
             return maximum;
         }
+
+        // Time Complexity - O(n)
+        // Space Complexity - O(n)
+        int largest_rectangle_optimized(vector<int>& arr) {
+            int n = arr.size();
+            int max_area = 0;
+            stack<int> st;
+            int nse, pse, element;
+
+            for (int i = 0; i <= n - 1; i++) {
+                while (!st.empty() && arr[st.top()] > arr[i]) {
+                    element = arr[st.top()]; st.pop();
+                    nse = i;
+                    pse = st.empty() ? -1 : st.top();
+
+                    max_area = max(max_area, element * (nse - pse - 1));
+                }
+
+                st.push(i);
+            }
+
+            while (!st.empty()) {
+                nse = n;
+                element = arr[st.top()]; st.pop();
+                pse = st.empty() ? -1 : st.top();
+
+                max_area = max(max_area, element * (nse - pse - 1));
+            }
+
+            return max_area;
+        }
 };
